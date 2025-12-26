@@ -6,8 +6,19 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		F5823CF62EFDD8FC002F81D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1000013233A00001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A100000F233A00001;
+			remoteInfo = shotchart;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A1000009233A00001 /* shotchart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shotchart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5823CF22EFDD8FC002F81D8 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -22,10 +33,18 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F5823C7C2EFCD1BE002F81D8 /* shotchart */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F5823CE62EFD1492002F81D8 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = shotchart; sourceTree = "<group>"; };
+		F5823D032EFDD935002F81D8 /* UnitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UnitTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A100000A233A00001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5823CEF2EFDD8FC002F81D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -40,6 +59,7 @@
 			children = (
 				F5823C7C2EFCD1BE002F81D8 /* shotchart */,
 				A100000D233A00001 /* Products */,
+				F5823D032EFDD935002F81D8 /* UnitTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				A1000009233A00001 /* shotchart.app */,
+				F5823CF22EFDD8FC002F81D8 /* UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +95,29 @@
 			productReference = A1000009233A00001 /* shotchart.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F5823CF12EFDD8FC002F81D8 /* UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5823CF82EFDD8FC002F81D8 /* Build configuration list for PBXNativeTarget "UnitTests" */;
+			buildPhases = (
+				F5823CEE2EFDD8FC002F81D8 /* Sources */,
+				F5823CEF2EFDD8FC002F81D8 /* Frameworks */,
+				F5823CF02EFDD8FC002F81D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5823CF72EFDD8FC002F81D8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F5823D032EFDD935002F81D8 /* UnitTests */,
+			);
+			name = UnitTests;
+			packageProductDependencies = (
+			);
+			productName = UnitTests;
+			productReference = F5823CF22EFDD8FC002F81D8 /* UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -81,11 +125,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					A100000F233A00001 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					F5823CF12EFDD8FC002F81D8 = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = A100000F233A00001;
 					};
 				};
 			};
@@ -103,12 +151,20 @@
 			projectRoot = "";
 			targets = (
 				A100000F233A00001 /* shotchart */,
+				F5823CF12EFDD8FC002F81D8 /* UnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A1000012233A00001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5823CF02EFDD8FC002F81D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -125,7 +181,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F5823CEE2EFDD8FC002F81D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5823CF72EFDD8FC002F81D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A100000F233A00001 /* shotchart */;
+			targetProxy = F5823CF62EFDD8FC002F81D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A1000015233A00001 /* Debug */ = {
@@ -260,10 +331,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = shotchart/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = HoopChart;
+				INFOPLIST_KEY_CFBundleDisplayName = HoopCharts;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,10 +362,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = shotchart/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = HoopChart;
+				INFOPLIST_KEY_CFBundleDisplayName = HoopCharts;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,6 +377,50 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F5823CF92EFDD8FC002F81D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755FYD4YJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = motleywoods.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shotchart.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/shotchart";
+			};
+			name = Debug;
+		};
+		F5823CFA2EFDD8FC002F81D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 755FYD4YJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = motleywoods.UnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shotchart.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/shotchart";
 			};
 			name = Release;
 		};
@@ -328,6 +441,15 @@
 			buildConfigurations = (
 				A1000015233A00001 /* Debug */,
 				A1000016233A00001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5823CF82EFDD8FC002F81D8 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5823CF92EFDD8FC002F81D8 /* Debug */,
+				F5823CFA2EFDD8FC002F81D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
