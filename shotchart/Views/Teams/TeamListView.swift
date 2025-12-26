@@ -154,7 +154,7 @@ struct TeamListRowView: View {
     init(team: Team) {
         self.team = team
 
-        let predicate = NSPredicate(format: "teamId == %@", team.id! as CVarArg)
+        let predicate = NSPredicate(format: "teamId == %@ AND archivedAt == nil", team.id! as CVarArg)
         _players = FetchRequest(
             sortDescriptors: [],
             predicate: predicate

@@ -24,13 +24,13 @@ struct StatsContainerView: View {
         )
 
         if let teamId = game.teamId {
-            let teamPredicate = NSPredicate(format: "id == %@", teamId as CVarArg)
+            let teamPredicate = NSPredicate(format: "id == %@ AND archivedAt == nil", teamId as CVarArg)
             _teams = FetchRequest(
                 sortDescriptors: [],
                 predicate: teamPredicate
             )
 
-            let playersPredicate = NSPredicate(format: "teamId == %@", teamId as CVarArg)
+            let playersPredicate = NSPredicate(format: "teamId == %@ AND archivedAt == nil", teamId as CVarArg)
             _players = FetchRequest(
                 sortDescriptors: [NSSortDescriptor(keyPath: \Player.number, ascending: true)],
                 predicate: playersPredicate
@@ -361,7 +361,7 @@ struct PlayerStatsView: View {
         self.teamId = teamId
 
         if let teamId = teamId {
-            let predicate = NSPredicate(format: "teamId == %@", teamId as CVarArg)
+            let predicate = NSPredicate(format: "teamId == %@ AND archivedAt == nil", teamId as CVarArg)
             _players = FetchRequest(
                 sortDescriptors: [NSSortDescriptor(keyPath: \Player.number, ascending: true)],
                 predicate: predicate

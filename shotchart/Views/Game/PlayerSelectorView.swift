@@ -77,6 +77,7 @@ struct PlayerSelectorView: View {
                 player.id = UUID()
                 player.number = number
                 player.teamId = team.id
+                player.createdAt = Date()
 
                 do {
                     try viewContext.save()
