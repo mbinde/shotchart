@@ -72,12 +72,30 @@ struct GameSetupView: View {
         game.date = Date()
         game.teamId = selectedTeam?.id
 
+        // Update lastSeenAt for all players on this team
+        if let teamId = selectedTeam?.id {
+            updateLastSeenForTeam(teamId: teamId, date: game.date ?? Date())
+        }
+
         do {
             try viewContext.save()
             newGame = game
             navigateToGame = true
         } catch {
             print("Error creating game: \(error)")
+        }
+    }
+
+    private func updateLastSeenForTeam(teamId: UUID, date: Date) {
+        let request: NSFetchRequest<Player> = Player.fetchRequest()
+        request.predicate = NSPredicate(format: "teamId == %@ AND archivedAt == nil", teamId as CVarArg)
+
+        if let players = try? viewContext.fetch(request) {
+            for player in players {
+                if player.lastSeenAt == nil || date > player.lastSeenAt! {
+                    player.lastSeenAt = date
+                }
+            }
         }
     }
 }
