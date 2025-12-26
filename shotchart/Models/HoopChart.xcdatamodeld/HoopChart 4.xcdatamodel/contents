@@ -40,8 +40,16 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Team" representedClassName=".Team" syncable="YES" codeGenerationType="class">
+        <attribute name="courtBackgroundAlpha" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="courtBackgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="courtBackgroundPattern" optional="YES" attributeType="String"/>
+        <attribute name="courtLineColor" optional="YES" attributeType="String"/>
+        <attribute name="courtPatternScale" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="courtType" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="screenBackgroundColorPrimary" optional="YES" attributeType="String"/>
+        <attribute name="useCustomCourtTheme" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
 </model>
