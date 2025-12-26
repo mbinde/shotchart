@@ -13,14 +13,27 @@ enum ShotType: Int16, CaseIterable {
         }
     }
 
-    /// Detect shot type based on normalized court position (0-1 range)
-    /// Court: NBA dimensions - 50' wide x 47' half court
-    /// Basket at TOP center (0.5, 4/47 ≈ 0.085)
-    static func detect(x: Double, y: Double) -> ShotType {
-        // NBA dimensions in normalized coordinates
-        // Basket: 4 feet from baseline → 4/47 = 0.085
+    /// Calculate distance in feet from basket for normalized court position
+    static func distanceFromBasket(x: Double, y: Double) -> Double {
         let basketX = 0.5
-        let basketY = 4.0 / 47.0
+        let basketY = 5.25 / 47.0  // Basket is 5.25 feet from baseline
+        let dxFeet = (x - basketX) * 50.0
+        let dyFeet = (y - basketY) * 47.0
+        return sqrt(dxFeet * dxFeet + dyFeet * dyFeet)
+    }
+
+    /// Detect shot type based on normalized court position (0-1 range)
+    /// Court dimensions - 50' wide x 47' half court
+    /// Basket at TOP center (0.5, 5.25/47 ≈ 0.112)
+    /// - Parameters:
+    ///   - x: Normalized x position (0-1)
+    ///   - y: Normalized y position (0-1)
+    ///   - threePointArc: 3-point arc distance in feet (varies by court type)
+    ///   - threePointCorner: Corner 3-point distance in feet (NBA=22, College=21.65, HS=19.75)
+    static func detect(x: Double, y: Double, threePointArc: Double = 23.75, threePointCorner: Double = 22.0) -> ShotType {
+        // Basket: 5.25 feet from baseline (63 inches, standard for all levels)
+        let basketX = 0.5
+        let basketY = 5.25 / 47.0
 
         // Free throw line: 19 feet from baseline → 19/47 = 0.404
         let freeThrowY = 19.0 / 47.0
@@ -37,17 +50,18 @@ enum ShotType: Int16, CaseIterable {
         let dyFeet = (y - basketY) * 47.0
         let distanceFeet = sqrt(dxFeet * dxFeet + dyFeet * dyFeet)
 
-        // 3-point line is 23.75 feet from basket (22 feet in corners)
-        let threePointThreshold = 23.5  // feet
-        let cornerThreeThreshold = 21.5 // feet (corners are slightly shorter)
+        // Use slightly smaller thresholds to account for the line itself
+        let arcThreshold = threePointArc - 0.25
+        let cornerThreshold = threePointCorner - 0.5
 
-        // Corner: within 3 feet of sideline
-        let isCorner = x < (3.0 / 50.0) + 0.02 || x > 1.0 - (3.0 / 50.0) - 0.02
+        // Corner: within 3 feet of sideline (where corner 3 applies)
+        let cornerZoneX = 3.0 / 50.0 + 0.02
+        let isCorner = x < cornerZoneX || x > 1.0 - cornerZoneX
 
         if isCorner {
-            return distanceFeet > cornerThreeThreshold ? .threePointer : .twoPointer
+            return distanceFeet > cornerThreshold ? .threePointer : .twoPointer
         } else {
-            return distanceFeet > threePointThreshold ? .threePointer : .twoPointer
+            return distanceFeet > arcThreshold ? .threePointer : .twoPointer
         }
     }
 }
