@@ -7,7 +7,7 @@ struct LaunchScreenView: View {
             DS.appBackground
                 .ignoresSafeArea()
 
-            Image("loading-screen")
+            Image("launchscreen")
                 .resizable()
                 .scaledToFit()
         }
