@@ -20,6 +20,7 @@ struct PersistenceController {
             player.number = Int16(number)
             player.name = "Player \(number)"
             player.teamId = team.id
+            player.createdAt = Date()
         }
 
         do {

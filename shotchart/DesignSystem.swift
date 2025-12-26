@@ -20,7 +20,7 @@ struct DS {
     // MARK: - Background Colors
 
     /// Main app background - dark blue
-    static let appBackground = Color(red: 37/255, green: 74/255, blue: 127/255)
+    static let appBackground = Color(red: 4/255, green: 32/255, blue: 72/255)
 
     /// Card/row background - for list items, buttons
     static let cardBackground = Color(uiColor: .secondarySystemBackground)
